@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+  <form-beans>
+      <form-bean name="StudentDataEntryForm" type="org.sis.forms.StudentDataEntryForm"/>
+      <form-bean name="LoginForm" type="org.sis.forms.LoginForm"/>
+      <form-bean name="FeedbackForm" type="org.sis.forms.FeedbackForm"/>
+<!--     <form-bean name="SearchUsersForm" type="org.sis.forms.SearchUsersForm">
+           <form-property name="firstname" type="java.lang.String"/>
+      <form-property name="email" type="java.lang.String"/>
+      <form-property name="dob" type="java.lang.String"/>
+      <form-property name="gender" type="java.lang.String"/>
+      </form-bean>-->
+      <form-bean name="SearchUsersForm" type="org.sis.forms.SearchUsersForm"/>
+  </form-beans>
+<!--    <global-forwards>
+        <forward name="home"  path="Home.pvk"/>
+    </global-forwards>-->
+
+    <action-mappings>
+        <action path="/Home" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Home/Home.jsp">
+        </action>
+        <action path="/Depart"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="Depart">
+        </action>
+        <action path="/About"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="Dabout">
+        </action>
+         <action path="/Student"
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Student/Student.jsp">
+        </action>
+        <action path="/csehome"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="cseh">
+        </action>
+        <action path="/dlogin"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="dlogin">
+        </action>
+         <action path="/rlogin"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="rlogin">
+        </action>
+          <action input="/Start/Depart/cse/registar/login.jsp" 
+                name="LoginForm" 
+                path="/login" 
+                scope="session" 
+                type="org.sis.actions.DeparttLoginAction">
+            <forward name="success" path="/Start/Depart/cse/home.jsp"/>
+            <forward name="failure" path="/dlogin.pvk"/>
+        </action>
+        <action input="/Start/Depart/cse/login.jsp" 
+                name="LoginForm" 
+                path="/loginr" 
+                scope="session" 
+                type="org.sis.actions.RegistarLogin">
+            <forward name="success" path="/rhome.pvk"/>
+            <forward name="failure" path="/rlogin.pvk"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdae" 
+                scope="session" 
+                type="org.sis.actions.StudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/cse/sdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/threeone" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/cse/aftloginhome.jsp">
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdme" 
+                scope="session" 
+                type="org.sis.actions.StudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/cse/sdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdsme" 
+                scope="session" 
+                type="org.sis.actions.StudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/cse/sdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/grades" 
+                scope="session" 
+                type="org.sis.actions.Grades">
+            <forward name="success" path="/Start/Depart/cse/Grades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/dayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.Dayattendance">
+            <forward name="success" path="/Start/Depart/cse/dayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fifthsdae" 
+                scope="session" 
+                type="org.sis.actions.fifthact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/fifth/fifthsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fifth" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/fifth/fifthhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fifthsdme" 
+                scope="session" 
+                type="org.sis.actions.fifthact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/fifth/fifthsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fifthsdsme" 
+                scope="session" 
+                type="org.sis.actions.fifthact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/fifth/fifthsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/fifthgrades" 
+                scope="session" 
+                type="org.sis.actions.fifthact.FifthGrades">
+            <forward name="success" path="/Start/Depart/fifth/fifthGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/fifthdayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.fifthact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/fifth/fifthdayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/secondsdae" 
+                scope="session" 
+                type="org.sis.actions.secondact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/second/secondsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/second" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/second/secondhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/secondsdme" 
+                scope="session" 
+                type="org.sis.actions.secondact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/second/secondsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/secondsdsme" 
+                scope="session" 
+                type="org.sis.actions.secondact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/second/secondsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/secondgrades" 
+                scope="session" 
+                type="org.sis.actions.secondact.FifthGrades">
+            <forward name="success" path="/Start/Depart/second/secondGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/seconddayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.secondact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/second/seconddayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/thirdsdae" 
+                scope="session" 
+                type="org.sis.actions.thirdact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/third/thirdsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/third" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/third/thirdhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/thirdsdme" 
+                scope="session" 
+                type="org.sis.actions.thirdact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/third/thirdsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/thirdsdsme" 
+                scope="session" 
+                type="org.sis.actions.thirdact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/third/thirdsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/thirdgrades" 
+                scope="session" 
+                type="org.sis.actions.thirdact.FifthGrades">
+            <forward name="success" path="/Start/Depart/third/thirdGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/thirddayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.thirdact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/third/thirddayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fourthsdae" 
+                scope="session" 
+                type="org.sis.actions.fourthact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/fourth/fourthsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fourth" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/fourth/fourthhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fourthsdme" 
+                scope="session" 
+                type="org.sis.actions.fourthact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/fourth/fourthsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/fourthsdsme" 
+                scope="session" 
+                type="org.sis.actions.fourthact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/fourth/fourthsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/fourthgrades" 
+                scope="session" 
+                type="org.sis.actions.fourthact.FifthGrades">
+            <forward name="success" path="/Start/Depart/fourth/fourthGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/fourthdayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.fourthact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/fourth/fourthdayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/firstsdae" 
+                scope="session" 
+                type="org.sis.actions.firstact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/first/firstsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/first" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/first/firsthome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/firstsdme" 
+                scope="session" 
+                type="org.sis.actions.firstact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/first/firstsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/firstsdsme" 
+                scope="session" 
+                type="org.sis.actions.firstact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/first/firstsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/firstgrades" 
+                scope="session" 
+                type="org.sis.actions.firstact.FifthGrades">
+            <forward name="success" path="/Start/Depart/first/firstGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/firstdayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.firstact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/first/firstdayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/seventhsdae" 
+                scope="session" 
+                type="org.sis.actions.seventhact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/seventh/seventhsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/seventh" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/seventh/seventhhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/seventhsdme" 
+                scope="session" 
+                type="org.sis.actions.seventhact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/seventh/seventhsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/seventhsdsme" 
+                scope="session" 
+                type="org.sis.actions.seventhact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/seventh/seventhsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/seventhgrades" 
+                scope="session" 
+                type="org.sis.actions.seventhact.FifthGrades">
+            <forward name="success" path="/Start/Depart/seventh/seventhGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/seventhdayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.seventhact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/seventh/seventhdayat.jsp"/>
+        </action>
+         <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/eighthsdae" 
+                scope="session" 
+                type="org.sis.actions.eighthact.FifthStudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/eighth/eighthsdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/eighth" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/eighth/eighthhome.jsp"> 
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/eighthsdme" 
+                scope="session" 
+                type="org.sis.actions.eighthact.FifthStudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/eighth/eighthsdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/eighthsdsme" 
+                scope="session" 
+                type="org.sis.actions.eighthact.FifthStudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/eighth/eighthsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/eighthgrades" 
+                scope="session" 
+                type="org.sis.actions.eighthact.FifthGrades">
+            <forward name="success" path="/Start/Depart/eighth/eighthGrades.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/dayat.jsp" 
+                name="StudentDataEntryForm" 
+                path="/eighthdayat" 
+                parameter="mode"
+                scope="session" 
+                type="org.sis.actions.eighthact.FifthDayattendance">
+            <forward name="success" path="/Start/Depart/eighth/eighthdayat.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/home.jsp" 
+                name="StudentDataEntryForm" 
+                path="/std" scope="session" 
+                type="org.sis.actions.StudentDetailsAction" >
+            <forward name="success" path="/Start/Depart/cse/home.jsp"/>
+        </action>
+        <action input="/Start/Student/Student.jsp" 
+                name="StudentDataEntryForm"
+                path="/slogin" scope="session" 
+                type="org.sis.actions.StudentLoginAction" >
+            <forward name="success" path="/shome.pvk"/>
+         <forward name="failure" path="/Student.pvk"/>
+        </action>
+         <action 
+                path="/shome" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/Student/sdisplay.jsp">
+        </action>
+        <action 
+                path="/scp" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/Student/scp.jsp">
+        </action>
+         <action 
+                path="/fp" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/Student/forgot.jsp">
+        </action>
+          <action 
+                path="/scm" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/Student/scm.jsp">
+        </action>
+        <action input="/Start/Student/sdisplay.jsp" 
+                name="StudentDataEntryForm" 
+                path="/stdh" scope="session" 
+                type="org.sis.actions.StudentDetailsAction" >
+            <forward name="success" path="/Start/Student/sdisplay.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/spa" scope="session" 
+                type="org.sis.actions.StudentProfileAction">
+             <forward name="success" path="/Start/Student/profile.jsp"/>
+        </action>
+        <action input="/Start/Student/scp.jsp" 
+                name="StudentDataEntryForm" 
+                path="/scpa" scope="session" 
+                type="org.sis.actions.StudentChangePassword">
+            <forward name="success" path="/Start/Student/scp.jsp"/>
+        </action>
+        <action input="/Start/Student/scm.jsp" 
+                name="StudentDataEntryForm" 
+                path="/scmi" scope="session" 
+                type="org.sis.actions.StudentChangeMail">
+             <forward name="success" path="/Start/Student/scm.jsp"/>
+        </action>
+        <action input="/Start/Student/forgot.jsp" 
+                name="StudentDataEntryForm"
+                path="/fpm" scope="session" 
+                type="org.sis.actions.ForgotPassword">
+            <forward name="success" path="/Start/Student/forgot.jsp"/>
+        </action>
+        
+
+              <!--        registar actions are started from here        -->
+              <action input="/Start/Depart/cse/home.jsp" 
+                name="StudentDataEntryForm" 
+                path="/stdr" scope="session" 
+                type="org.sis.actions.StudentDetailsAction" >
+            <forward name="success" path="/Start/Depart/cse/registar/rhome.jsp"/>
+        </action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/firstsdaer" 
+        scope="session" 
+        type="org.sis.actions.firstact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/first/firstsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/firstr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/first/firsthome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/firstsdmer" 
+        scope="session" 
+        type="org.sis.actions.firstact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/first/firstsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/firstsdsmer" 
+        scope="session" 
+        type="org.sis.actions.firstact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/first/firstsdsme.jsp"/>
+</action>
+<action input="/Start/Depart/cse/registar/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/firstgradesr" 
+        scope="session" 
+        type="org.sis.actions.firstact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/first/firstGrades.jsp"/>
+</action>
+              <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/secondsdaer" 
+        scope="session" 
+        type="org.sis.actions.secondact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/second/secondsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/secondr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/second/secondhome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/secondsdmer" 
+        scope="session" 
+        type="org.sis.actions.secondact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/second/secondsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/secondsdsmer" 
+        scope="session" 
+        type="org.sis.actions.secondact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/second/secondsdsme.jsp"/>
+</action>
+<action input="/Start/Depart/cse/registar/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/secondgradesr" 
+        scope="session" 
+        type="org.sis.actions.secondact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/second/secondGrades.jsp"/>
+</action>
+              <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/thirdsdaer" 
+        scope="session" 
+        type="org.sis.actions.thirdact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/third/thirdsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/thirdr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/third/thirdhome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/thirdsdmer" 
+        scope="session" 
+        type="org.sis.actions.thirdact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/third/thirdsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/thirdsdsmer" 
+        scope="session" 
+        type="org.sis.actions.thirdact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/third/thirdsdsme.jsp"/>
+</action>
+<action input="/Start/Depart/cse/registar/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/thirdgradesr" 
+        scope="session" 
+        type="org.sis.actions.thirdact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/third/thirdGrades.jsp"/>
+</action>
+
+              <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fifthsdaer" 
+        scope="session" 
+        type="org.sis.actions.fifthact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fifth/fifthsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fifthr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/fifth/fifthhome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fifthsdmer" 
+        scope="session" 
+        type="org.sis.actions.fifthact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fifth/fifthsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fifthsdsmer" 
+        scope="session" 
+        type="org.sis.actions.fifthact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fifth/fifthsdsme.jsp"/>
+</action>
+<action input="/Start/Depart/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/fifthgradesr" 
+        scope="session" 
+        type="org.sis.actions.fifthact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/fifth/fifthGrades.jsp"/>
+</action>
+                 <action path="/rhome"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/Start/Depart/cse/registar/rhome.jsp">
+        </action>
+              <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdaer" 
+                scope="session" 
+                type="org.sis.actions.StudentDataEntryAction">
+            <forward name="success" path="/Start/Depart/cse/registar/sixth/sdae.jsp"/>
+        </action>
+          <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/threeoner" 
+                scope="session" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward="/Start/Depart/cse/registar/sixth/aftloginhome.jsp">
+        </action>
+            <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdmer" 
+                scope="session" 
+                type="org.sis.actions.StudentDataMarksEntryAction">
+            <forward name="success" path="/Start/Depart/cse/registar/sixth/sdme.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/sdsmer" 
+                scope="session" 
+                type="org.sis.actions.StudentSemmarksAction">
+            <forward name="success" path="/Start/Depart/cse/registar/sixth/sdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+                name="StudentDataEntryForm" 
+                path="/gradesr" 
+                scope="session" 
+                type="org.sis.actions.Grades">
+            <forward name="success" path="/Start/Depart/cse/registar/sixth/Grades.jsp"/>
+        </action>
+        <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/seventhsdaer" 
+        scope="session" 
+        type="org.sis.actions.seventhact.FifthStudentDataEntryAction">
+        <forward name="success" path="/Start/Depart/cse/registar/seventh/seventhsdae.jsp"/>
+            </action>
+        <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/seventhr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/seventh/seventhhome.jsp"> 
+        </action>
+        <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/seventhsdmer" 
+        scope="session" 
+        type="org.sis.actions.seventhact.FifthStudentDataMarksEntryAction">
+        <forward name="success" path="/Start/Depart/cse/registar/seventh/seventhsdme.jsp"/>
+        </action>
+        <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/seventhsdsmer" 
+        scope="session" 
+        type="org.sis.actions.seventhact.FifthStudentSemmarksAction">
+        <forward name="success" path="/Start/Depart/cse/registar/seventh/seventhsdsme.jsp"/>
+        </action>
+        <action input="/Start/Depart/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/seventhgradesr" 
+        scope="session" 
+        type="org.sis.actions.seventhact.FifthGrades">
+        <forward name="success" path="/Start/Depart/cse/registar/seventh/seventhGrades.jsp"/>
+        </action>
+        <action input="/" 
+        name="StudentDataEntryForm" 
+        path="/eighthsdaer" 
+        scope="session" 
+        type="org.sis.actions.eighthact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/eighth/eighthsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/eighthr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/eighth/eighthhome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/eighthsdmer" 
+        scope="session" 
+        type="org.sis.actions.eighthact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/eighth/eighthsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/eighthsdsmer" 
+        scope="session" 
+        type="org.sis.actions.eighthact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/eighth/eighthsdsme.jsp"/>
+</action>
+<action input="/Start/cse/registar/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/eighthgradesr" 
+        scope="session" 
+        type="org.sis.actions.eighthact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/eighth/eighthGrades.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fourthsdaer" 
+        scope="session" 
+        type="org.sis.actions.fourthact.FifthStudentDataEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fourth/fourthsdae.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fourthr" 
+        scope="session" 
+        type="org.apache.struts.actions.ForwardAction"
+        forward="/Start/Depart/cse/registar/fourth/fourthhome.jsp"> 
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fourthsdmer" 
+        scope="session" 
+        type="org.sis.actions.fourthact.FifthStudentDataMarksEntryAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fourth/fourthsdme.jsp"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/fourthsdsmer" 
+        scope="session" 
+        type="org.sis.actions.fourthact.FifthStudentSemmarksAction">
+    <forward name="success" path="/Start/Depart/cse/registar/fourth/fourthsdsme.jsp"/>
+</action>
+<action input="/Start/Depart/cse/registar/cse/Grades.jsp" 
+        name="StudentDataEntryForm" 
+        path="/fourthgradesr" 
+        scope="session" 
+        type="org.sis.actions.fourthact.FifthGrades">
+    <forward name="success" path="/Start/Depart/cse/registar/fourth/fourthGrades.jsp"/>
+</action>
+               <!-- admin login actions and mappings-->
+<action 
+    input="/" 
+    name="StudentDataEntryForm" 
+    path="/alogin" 
+    scope="session" 
+    type="org.sis.actions.adminact.Adminlogin">
+    <forward name="success" path="/ahome.pvk"/>
+    <forward name="failure" path="/Depart.pvk"/>
+</action>
+<action input="/" 
+        name="StudentDataEntryForm" 
+        path="/ahome" 
+        scope="session" 
+        type="org.sis.actions.adminact.AdminhomeAction">
+    <forward name="success" path="/Start/admin/ahome.jsp"/>
+</action>
+ <action 
+                path="/addmentor" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/admin/addmentor.jsp">
+        </action>
+        <action 
+                path="/deletementor" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/admin/deletementor.jsp">
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/deletementact" 
+                scope="session" 
+                type="org.sis.actions.adminact.DeletementAction">
+             <forward name="success" path="/Start/admin/deletementor.jsp"/>
+              <forward name="failure" path="/Start/admin/deletementor.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/addmenact" 
+                scope="session" 
+                type="org.sis.actions.adminact.AddmentorAction">
+             <forward name="success" path="/Start/admin/addmentor.jsp"/>
+              <forward name="failure" path="/Start/admin/addmentor.jsp"/>
+        </action>
+       
+        <action input="/" 
+                name="FeedbackForm" 
+                parameter="enroll" 
+                path="/facultyen" 
+                scope="session"
+                type="org.sis.actions.FacultyEnrollAction">
+             <forward name="success" path="/Start/Depart/FacultyEnroll.jsp"/>
+        </action>
+       
+                    <!--        Feedback pages-->
+        <action 
+                path="/Feedback" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/feedback/FeedbackLogin.jsp">
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/Feedlog" 
+                scope="session" 
+                type="org.sis.actions.feedback.FeedbackLogin">
+             <forward name="success" path="/Start/feedback/FeedbackHome.jsp"/>
+             <forward name="failure" path="/Start/feedback/FeedbackLogin.jsp"/>
+        </action>
+        <action input="/"
+                name="StudentDataEntryForm" 
+                path="/fsem" 
+                scope="session" 
+                type="org.sis.actions.feedback.FeedbackSem">
+            <forward name="success" path="/Start/feedback/feedbacksub.jsp"/>
+            <forward name="failure" path="/Start/feedback/logout.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/feedsubmission" 
+                scope="session" 
+                type="org.sis.actions.feedback.FeedSubmission">
+             <forward name="success" path="/Start/feedback/logfout.jsp"/>
+              <forward name="failure" path="/Start/feedback/logfout.jsp"/>
+        </action>
+        <action input="/" 
+                name="FeedbackForm" 
+                parameter="enroll" 
+                path="/forgotfaculty" 
+                scope="session"
+                 type="org.sis.actions.FacultyForgot">
+             <forward name="success" path="/Start/Depart/facultyforgot.jsp"/>
+        </action>
+         <action 
+                path="/feedbacka" 
+                type="org.apache.struts.actions.ForwardAction"
+                forward = "/Start/admin/feedback.jsp">
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm"
+                path="/adminfeedloginset" 
+                scope="session" 
+                type="org.sis.actions.adminact.AdminFeedSetAction">
+            <forward name="success" path="/Start/admin/feedlogindisplay.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm"
+                path="/feedemail" 
+                scope="session" 
+                type="org.sis.actions.adminact.AdminFeedbackEmail">
+             <forward name="success" path="/Start/admin/feeddisplay.jsp"/>
+              <forward name="failure" path="/Start/admin/feeddisplay.jsp"/>
+        </action>
+        <action input="/" 
+                name="StudentDataEntryForm" 
+                path="/adminmailfeedback" 
+                scope="session" 
+                type="org.sis.actions.adminact.AdminMailFeedback">
+              <forward name="success" path="/Start/admin/feeddisplay.jsp"/>
+              <forward name="failure" path="/Start/admin/feeddisplay.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+</struts-config>

@@ -1,0 +1,68 @@
+/* Main containers */
+#back {padding:0; margin:0; font:76% verdana,tahoma,sans-serif; background:#1a1a1a url(Home.jpg) top center no-repeat; color:#444; border-top:4px solid #444; text-align:center; line-height:1.5em;}
+#wrap {width:1200px; text-align:center; margin:0 auto;}
+#maincontent {background:#fff; text-align:left; border:4px solid #666; padding:15px 15px 5px 15px; margin:0 0 15px 0;}
+
+/* HTML Tags */
+a {text-decoration:none; font-weight:700; color:#e49938;}
+a:hover {text-decoration:underline;}
+a img {border:0;}
+h1 {margin:20px auto 15px auto; padding:0; font-size:2.6em; color:#eee; letter-spacing:-2px; line-height:1.2em;}
+h1 a {color:#eee; font-weight:700; text-decoration:none;}
+h1 a:hover {color:#e49938; text-decoration:underline;}
+#hback {margin:0 0 12px 0; padding:12px 6px 12px 15px; background:#1a1a1a url(Home.jpg) top center no-repeat; border-left:4px solid #e49938; color:#ddd; font-size:1.5em; font-weight:400;}
+h2 a {font-weight:400;}
+h3 {font-size:1.4em; font-weight:400; margin:0 0 10px 0;}
+p {margin:0 0 15px 0;}
+ul {margin:0 0 15px 20px; padding:0;}
+li {margin:0; padding:0 0 0 5px;}
+
+#menubar
+{ width: 940px;
+  height: 50px;
+  text-align: center; 
+  margin: 0 auto;} 
+  ul#nav
+{ margin:0;}
+
+ul#nav li
+{ padding: 0 0 0 0px;
+  list-style: none;
+  margin: 2px 0 0 0;
+  display: inline;
+  background: transparent;}
+
+ul#nav li a
+{ float: left;
+  font: bold 120% Arial, Helvetica, sans-serif;
+  height: 24px;
+  margin: 10px 0 0 20px;
+  text-shadow: 0px -1px 0px #000;
+  padding: 6px 20px 0 20px;
+  background: transparent; 
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border: 7px 7px 7px 7px;
+  text-align: center;
+  color:#e49938;
+  text-decoration: none;} 
+  
+ul#nav li.current a, ul#nav li:hover a
+{ color: #000;
+  background: #CCC;
+  background: -moz-linear-gradient(#FFF, #BBB);
+  background: -o-linear-gradient(#FFF, #BBB);
+  background: -webkit-linear-gradient(#FFF, #BBB);  
+  text-shadow: none;}
+
+
+/* Various classes */
+.slogan {color:#ccc; font-size:1.4em; margin:0 0 15px 0; padding:0;}
+.toptabs {clear:both; font-size:1.4em; line-height:1.5em; color:#aaa; margin:0 0 15px 0;}
+.toptab {padding:3px 10px 5px 10px; font-weight:400; margin:0 2px; color:#ccc;}
+.toptab:hover {background-color:#444; color:#fff; text-decoration:none;}
+.active {background-color:#444; color:#fff;}
+.active:hover {background-color:#444; color:#fff;}
+.bottomlinks, .bottomlinks a {text-align:center; color:#888; font-size:0.9em; font-weight:400; margin:5px auto;}
+.footer, .footer a{color:#888; font-weight:400;}
+.hide {display:none;}

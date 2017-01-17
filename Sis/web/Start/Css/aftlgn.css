@@ -1,0 +1,55 @@
+h1 {margin:20px auto 15px auto; padding:0; font-size:2.6em; color:#eee; letter-spacing:-2px; line-height:1.2em;}
+p {margin:0 0 15px 0;}
+.slogan {color:#330099 ; font-size:1.4em; margin:0 0 15px 0; padding:0;}
+#wrap {width:1200px; text-align:center; margin:0 auto; }
+#maincontent {background:#B0E0E6; text-align:left; border:5px solid #E6E6FA; padding:15px 15px 5px 15px; margin:0 0 20px 0;}
+div.menu4
+{
+    width:1200px;margin:0 auto; /*Uncomment this line to make the menu center-aligned.*/
+    text-align:center;
+    font-size:5;
+    height: 25px;  
+    *position:relative;*top:1px;/*Hacks for IE6 & IE7 */  
+}
+
+div.menu4 a
+{
+    display: inline-block;
+    margin-right:6px; /* It specifies the distance between each tab */
+    background:#FFF url(bg.gif) repeat-x 0 0;
+    padding-left:4px;
+    vertical-align:top;/*ChangeSet#1*/
+    text-decoration:none;
+}
+
+div.menu4 a span
+{
+    display: inline-block;
+    background:#FFF url(bg.gif) repeat-x 100% 0;
+    padding: 0 20px;
+    text-decoration:none;
+    font: normal 18px Arial;
+    line-height: 25px;
+    color:#7087A9;
+    vertical-align:top;
+}
+
+div.menu4 a:hover, div.menu4 a.current
+{
+    background:#00FFFF  repeat-x 0 -25px;
+    line-height: 26px;
+}
+
+div.menu4 a:hover span, div.menu4 a.current span
+{
+    background:#00FFFF  repeat-x 100% -25px;
+    line-height: 50px;
+    color:#F70D1A;
+}
+
+div.menu4sub
+{
+    height:8px;
+    border:1px solid #C2D5EF;
+    background:#eee  repeat-x 0 -25px;
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+    
+     <definition name="departHome" template="/Start/Tiles/common-layout.jsp">
+	<put name="header" value="/Start/Tiles/dheader.jsp" />
+	<put name="footer" value="/Start/Tiles/dfooter.jsp" />
+      </definition>
+      <definition name="AHome" template="/Start/Tiles/common-layout_1.jsp">
+	<put name="header" value="/Start/Tiles/aheader.jsp" />
+	<put name="footer" value="/Start/Tiles/hfooter.jsp" />
+      </definition>
+      <definition name="SHome" template="/Start/Tiles/common-layout_1.jsp">
+	<put name="header" value="/Start/Tiles/sheader.jsp" />
+	<put name="footer" value="/Start/Tiles/hfooter.jsp" />
+      </definition>
+      <definition name="Depart" extends="departHome">
+         <put name="body" value="/Start/Depart/Depart.jsp" />
+      </definition>
+       <definition name="Dabout" extends="departHome">
+         <put name="body" value="/Start/Depart/About.jsp" />
+      </definition>
+      
+       <definition name="Sresult" extends="SHome">
+         <put name="body" value="/Start/Student/sdisplay.jsp" />
+      </definition>
+      <definition name="fresult" extends="AHome">
+         <put name="body" value="/Start/Student/fdisplay.jsp" />
+      </definition>
+       <definition name="cseh" extends="departHome">
+         <put name="body" value="/Start/Depart/cse/cseh.jsp" />
+      </definition>
+          <definition name="dlogin" extends="departHome">
+         <put name="body" value="/Start/Depart/cse/login.jsp" />
+      </definition>
+       <definition name="rlogin" extends="departHome">
+         <put name="body" value="/Start/Depart/cse/registar/login.jsp" />
+      </definition>
+     
+<!--      <definition name="Feedback" extends="AHome">
+         <put name="body" value="/Start/Student/Feedback.jsp" />
+      </definition>-->
+
+</tiles-definitions>
