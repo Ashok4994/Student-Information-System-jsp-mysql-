@@ -5,7 +5,7 @@
 
 ument   : Student
     Created on : May 31, 2015, 2:00:10 PM
-    Author     : PEDDI'S
+    Author     :  THOTA'S
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
